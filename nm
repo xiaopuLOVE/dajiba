@@ -40,8 +40,8 @@ local function HeartbeatUpdate()
 end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
-local Window = OrionLib:MakeWindow({Name = "小蒲脚本 | 注入器：" ..(identifyexecutor and identifyexecutor() or syn and "Synapse X" or "Unknown"), HidePremium = false, SaveConfig = true, IntroText = "欢迎使用小蒲脚本", ConfigFolder = "BeiFengCenter"})
-local xiaopu = Window:MakeTab({ 	Name = "大勾史", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local Window = OrionLib:MakeWindow({Name = "小蒲脚本", HidePremium = false, SaveConfig = true, IntroText = "欢迎使用小蒲脚本", ConfigFolder = "BeiFengCenter"})
+local xiaopu = Window:MakeTab({ 	Name = "通用", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 xiaopu:AddToggle({
 	Name = "夜视",
 	Default = false,
