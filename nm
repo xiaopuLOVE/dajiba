@@ -1,1 +1,5 @@
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/bilisolongcheng/roblox-/ASX/aim')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "史", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"}) 
+local xiaopu = Window:MakeTab({ 	Name = "大勾史", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+xiaopu:AddButton({ 	Name = "你妈", 	Callback = function() 		print("不知道") 	end })
+OrionLib:Init()
