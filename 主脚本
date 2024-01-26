@@ -172,4 +172,16 @@ xiaopu:AddButton({
 		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%8B%E8%BD%AC')))()
 	end
 })
+xiaopu:AddButton({
+	Name = "透视1需要验证Na1Xi",
+	Callback = function()
+		loadstring(game:GetObjects("rbxassetid://10092697033")[1].Source)()
+	end
+})
+xiaopu:AddButton({
+	Name = "透视2",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E9%80%8F%E8%A7%86')))()
+	end
+})
 OrionLib:Init() 
