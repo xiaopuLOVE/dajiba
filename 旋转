@@ -1,0 +1,4 @@
+--[[Fling GUI]]--
+--[[Made by topit]]--
+loadstring(game:HttpGet('https://pastebin.com/raw/r97d7dS0', true))()
+--This link auto updates, so there's no need to update this file.
