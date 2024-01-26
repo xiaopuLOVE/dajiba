@@ -154,4 +154,22 @@ xiaopu:AddButton({
 		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/fly')))()
 	end
 })
+xiaopu:AddButton({
+	Name = "无限跳跃",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%A0%E9%99%90%E8%B7%B3')))()
+	end
+})
+xiaopu:AddButton({
+	Name = "范围",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E8%8C%83%E5%9B%B4')))()
+	end
+})
+xiaopu:AddButton({
+	Name = "旋转",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%8B%E8%BD%AC')))()
+	end
+})
 OrionLib:Init() 
