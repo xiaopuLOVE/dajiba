@@ -1,7 +1,7 @@
 local CoreGui = game:GetService("StarterGui")
 
 CoreGui:SetCore("SendNotification", {
-    Title = "小蒲hub",
+    Title = "蒲hub",
     Text = "正在加载（反挂机已开启）",
     Duration = 5, 
 })
@@ -45,7 +45,13 @@ local function HeartbeatUpdate()
 end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
-local Window = OrionLib:MakeWindow({Name = "小蒲脚本", HidePremium = false, SaveConfig = true, IntroText = "欢迎使用小蒲脚本", ConfigFolder = "BeiFengCenter"})
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/SePpsSPZ'))()
+local Window = OrionLib:MakeWindow({Name = "浦hub", HidePremium = false, SaveConfig = true,IntroText = "欢迎使用浦hub", ConfigFolder = "欢迎使用浦hub"})
+local about = Window:MakeTab({
+    Name = "小蒲Hub",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 local xiaopu = Window:MakeTab({ 	Name = "通用", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 xiaopu:AddToggle({
 	Name = "夜视",
