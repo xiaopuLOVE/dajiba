@@ -1,4 +1,5 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local CoreGui = game:GetService("StarterGui")
+
 CoreGui:SetCore("SendNotification", {
     Title = "小蒲hub",
     Text = "正在加载（反挂机已开启）",
