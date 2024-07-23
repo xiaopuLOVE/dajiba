@@ -48,8 +48,8 @@ Heartbeat:Connect(HeartbeatUpdate)
 
 local notification = Instance.new("Sound")
 notification.Parent = game:GetService("SoundService")
-notification.SoundId = "rbxassetid://7334239757"
-notification.Volume = 1000
+notification.SoundId = "rbxassetid://7029099738"
+notification.Volume = 5
 notification:Play()
 
 local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/SePpsSPZ'))()
