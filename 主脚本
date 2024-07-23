@@ -405,16 +405,6 @@ xiaopu2:AddButton({
 })
 xiaopu3:AddButton({
 
-	Name = "忍者传奇",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
-xiaopu3:AddButton({
-
   Name = "林",
 
   Callback = function ()
@@ -438,16 +428,6 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/kkaaccnnbb/money/main
 })
 xiaopu4:AddButton({
 
-	Name = "极速传奇",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
-xiaopu4:AddButton({
-
   Name = "青",
 
   Callback = function ()
@@ -457,16 +437,6 @@ loadstring(game:HttpGet('https://rentry.co/ct293/raw'))()
   end
 
 })
-xiaopu5:AddButton({
-
-	Name = "战争大亨",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
 xiaopu5:AddButton({
 
   Name = "自瞄",
@@ -492,35 +462,15 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/jiankeQWQ/JianKeStudi
 })
 xiaopu6:AddButton({
 
-	Name = "动感星期五",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
-xiaopu6:AddButton({
-
   Name = "英文",
 
   Callback = function ()
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ShowerHead-FluxTeam/scripts/main/funky-friday-autoplay'))()
+loadstring(game:HttpGet("https://scriptblox.com/raw/XMAS-Event-or-Funky-Friday-Auto-Player-Mobile-6721"))()
 
   end
 
 })
-xiaopu7:AddButton({
-
-	Name = "彩虹朋友",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
 xiaopu7:AddButton({
 
   Name = "英文",
@@ -532,16 +482,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/JNHHGaming/Rainbow-Fr
   end
 
 })
-xiaopu8:AddButton({
-
-	Name = "最强战场",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
 xiaopu8:AddButton({
 
   Name = "林",
@@ -586,16 +526,6 @@ xiaopu8:AddButton({
 })
 xiaopu9:AddButton({
 
-	Name = "餐厅大亨",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
-xiaopu9:AddButton({
-
   Name = "林",
 
   Callback = function ()
@@ -605,16 +535,6 @@ loadstring(game:HttpGet("https://pastebin.com/raw/G823ph4x"))()
   end
 
 })
-xiaopu10:AddButton({
-
-	Name = "基本是混音FNF",
-
-	Icon = "rbxassetid://15613380753",
-
-	PremiumOnly = false
-
-})
-
 xiaopu10:AddButton({
 
   Name = "英文",
