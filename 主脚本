@@ -62,6 +62,14 @@ local about = Window:MakeTab({
 local xiaopu = Window:MakeTab({ 	Name = "通用", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 local xiaopu1 = Window:MakeTab({ 	Name = "一路向西Na1xi", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 local xiaopu2 = Window:MakeTab({ 	Name = "BF", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu3 = Window:MakeTab({ 	Name = "忍者传奇", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu4 = Window:MakeTab({ 	Name = "极速传奇", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu5 = Window:MakeTab({ 	Name = "战争大亨", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu6 = Window:MakeTab({ 	Name = "动感星期五", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu7 = Window:MakeTab({ 	Name = "彩虹朋友", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu8 = Window:MakeTab({ 	Name = "最强战场", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu9 = Window:MakeTab({ 	Name = "餐厅大亨", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
+local xiaopu10 = Window:MakeTab({ 	Name = "基本是混音", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
 xiaopu:AddToggle({
 	Name = "夜视",
 	Default = false,
@@ -228,7 +236,7 @@ xiaopu:AddButton({
 loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
 end
 })
-Tab:AddButton({
+xiaopu:AddButton({
 
   Name = "自瞄",
 
@@ -619,4 +627,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Libra
 
 })
 
-OrionLib:Init() 
+OrionLib:Init()
