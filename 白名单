@@ -1,0 +1,9 @@
+local whitelist = {
+
+    "117422ww",
+
+    -- 可以继续添加更多玩家名字
+
+}
+
+return whitelist
