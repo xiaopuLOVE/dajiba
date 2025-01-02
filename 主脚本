@@ -8,25 +8,51 @@ CoreGui:SetCore("SendNotification", {
 local LBLG = Instance.new("ScreenGui", getParent)
 local LBL = Instance.new("TextLabel", getParent)
 local player = game.Players.LocalPlayer
+local whitelist = {
+    "11742ww",
+    "QQ47666",
+	"玩家3",
+	"玩家4"    --例子  "玩家名字", 
+}
+local players = game.Players:GetPlayers()
 
-LBLG.Name = "LBLG"
-LBLG.Parent = game.CoreGui
-LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-LBLG.Enabled = true
-LBL.Name = "LBL"
-LBL.Parent = LBLG
-LBL.BackgroundColor3 = Color3.new(1, 1, 1)
-LBL.BackgroundTransparency = 1
-LBL.BorderColor3 = Color3.new(0, 0, 0)
-LBL.Position = UDim2.new(0.75,0,0.010,0)
-LBL.Size = UDim2.new(0, 133, 0, 30)
-LBL.Font = Enum.Font.GothamSemibold
-LBL.Text = "TextLabel"
-LBL.TextColor3 = Color3.new(1, 1, 1)
-LBL.TextScaled = true
-LBL.TextSize = 14
-LBL.TextWrapped = true
-LBL.Visible = true
+for _, player in ipairs(players) do
+
+    local playerName = player.Name
+
+    local isInWhitelist = false
+
+    for _, whitelistedName in ipairs(whitelist) do
+
+        if playerName == whitelistedName then
+
+            isInWhitelist = true
+
+            break
+
+        end
+
+    end
+
+if isInWhitelist then
+    LBLG.Name = "LBLG"
+    LBLG.Parent = game.CoreGui
+    LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    LBLG.Enabled = true
+    LBL.Name = "LBL"
+    LBL.Parent = LBLG
+    LBL.BackgroundColor3 = Color3.new(1, 1, 1)
+    LBL.BackgroundTransparency = 1
+    LBL.BorderColor3 = Color3.new(0, 0, 0)
+    LBL.Position = UDim2.new(0.75,0,0.010,0)
+    LBL.Size = UDim2.new(0, 133, 0, 30)
+    LBL.Font = Enum.Font.GothamSemibold
+    LBL.Text = "TextLabel"
+    LBL.TextColor3 = Color3.new(1, 1, 1)
+    LBL.TextScaled = true
+    LBL.TextSize = 14
+    LBL.TextWrapped = true
+    LBL.Visible = true
 
 local FpsLabel = LBL
 local Heartbeat = game:GetService("RunService").Heartbeat
@@ -403,6 +429,18 @@ xiaopu2:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript"))()
 	end
 })
+xiaopu2:AddButton({
+	Name = "bf英文",
+	Callback = function()
+		loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
+	end
+})
+xiaopu2:AddButton({
+	Name = "bf英文",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+	end
+})
 xiaopu3:AddButton({
 
   Name = "林",
@@ -546,5 +584,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Libra
   end
 
 })
-
 OrionLib:Init()
+      else
+
+        print(playerName .. " 这位玩家没有白名单，不运行脚本内容")
+
+    end
+
+end
