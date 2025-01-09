@@ -11,7 +11,7 @@ local player = game.Players.LocalPlayer
 local whitelist = {
     "11742ww",
     "QQ47666",
-    "1linse",
+	"玩家3",
 	"玩家4"    --例子  "玩家名字", 
 }
 local players = game.Players:GetPlayers()
@@ -227,16 +227,9 @@ xiaopu:AddButton({
 	end
 })
 xiaopu:AddButton({
-	Name = "透视1需要验证Na1Xi",
+	Name = "透视",
 	Callback = function()
-		loadstring(game:GetObjects("rbxassetid://10092697033")[1].Source)()
-	end
-})
-xiaopu:AddButton({
-	Name = "透视2",
-	Callback = function()
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E9%80%8F%E8%A7%86')))()
-	end
+		if _G.Reantheajfdfjdgse then return end _G.Reantheajfdfjdgse = "susan" local coregui = game:GetService("CoreGui") local players = game:GetService("Players") local plr = players.LocalPlayer local highlights = {} function esp(target, color) pcall(function() if target.Character then if not highlights[target] then local highlight = Instance.new("Highlight", coregui) highlight.Name = target.Name highlight.Adornee = target.Character highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop highlight.FillColor = color highlights[target] = highlight else highlights[target].FillColor = color end end end) end players.PlayerAdded:Connect(function(v) v.CharacterAdded:Connect(function() esp(v, _G.UseTeamColor and v.TeamColor.Color or ((plr.TeamColor == v.TeamColor) and _G.FriendColor or _G.EnemyColor)) end) end) players.PlayerRemoving:Connect(function(v) if highlights[v] then highlights[v]:Destroy() highlights[v] = nil end end) for i, v in pairs(players:GetPlayers()) do if v ~= plr then local color = _G.UseTeamColor and v.TeamColor.Color or ((plr.TeamColor == v.TeamColor) and _G.FriendColor or _G.EnemyColor) v.CharacterAdded:Connect(function() local color = _G.UseTeamColor and v.TeamColor.Color or ((plr.TeamColor == v.TeamColor) and _G.FriendColor or _G.EnemyColor) esp(v, color) end) esp(v, color) end end while task.wait() do for i, v in pairs(highlights) do local color = _G.UseTeamColor and i.TeamColor.Color or ((plr.TeamColor == i.TeamColor) and _G.FriendColor or _G.EnemyColor) v.FillColor = color end end
 })
 xiaopu:AddButton({
 
@@ -255,7 +248,24 @@ xiaopu:AddButton({
 mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "点击传送" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
 	end
 })
+xiaopu:AddButton({
+	Name = "子弹追踪",
+	Callback = function()
+local Camera = game:GetService("Workspace").CurrentCamera local Players = game:GetService("Players") local LocalPlayer = game:GetService("Players").LocalPlayer local function GetClosestPlayer() local ClosestPlayer = nil local FarthestDistance = math.huge for i, v in pairs(Players.GetPlayers(Players)) do if v ~= LocalPlayer and v.Character and v.Character.FindFirstChild(v.Character, "HumanoidRootPart") then local DistanceFromPlayer = (LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude if DistanceFromPlayer < FarthestDistance then FarthestDistance = DistanceFromPlayer ClosestPlayer = v end end end if ClosestPlayer then return ClosestPlayer end end local GameMetaTable = getrawmetatable(game) local OldGameMetaTableNamecall = GameMetaTable.__namecall setreadonly(GameMetaTable, false) GameMetaTable.__namecall = newcclosure(function(object, ...) local NamecallMethod = getnamecallmethod() local Arguments = {...} if tostring(NamecallMethod) == "FindPartOnRayWithIgnoreList" then local ClosestPlayer = GetClosestPlayer() if ClosestPlayer and ClosestPlayer.Character then Arguments[1] = Ray.new(Camera.CFrame.Position, (ClosestPlayer.Character.Head.Position - Camera.CFrame.Position).Unit * (Camera.CFrame.Position - ClosestPlayer.Character.Head.Position).Magnitude) end end return OldGameMetaTableNamecall(object, unpack(Arguments)) end) setreadonly(GameMetaTable, true)
+end
+})
+xiaopu:AddButton({
+	Name = "人物变小",
+	Callback = function()
+--[[simple script made by failedmite57926 Character settings: Body Type - 0% Height - 90% Width - 70% Head - 100% Proportions - 100% ]]-- local LocalPlayer = game:GetService("Players").LocalPlayer local Character = LocalPlayer.Character local Humanoid = Character:FindFirstChildOfClass("Humanoid") local function rm() 	for i,v in pairs(Character:GetDescendants()) do 		if v:IsA("BasePart") then 			if v.Name ~= "Head" then 				for i,cav in pairs(v:GetDescendants()) do 					if cav:IsA("Attachment") then 						if cav:FindFirstChild("OriginalPosition") then 							cav.OriginalPosition:Destroy() 						end 					end 				end 				v:FindFirstChild("OriginalSize"):Destroy() 				if v:FindFirstChild("AvatarPartScaleType") then 					v:FindFirstChild("AvatarPartScaleType"):Destroy() 				end 			end 		end 	end end rm() wait(0.5) Humanoid:FindFirstChild("BodyTypeScale"):Destroy() wait(0.2) rm() wait(0.5) Humanoid:FindFirstChild("BodyWidthScale"):Destroy() wait(0.2) rm() wait(0.5) Humanoid:FindFirstChild("BodyDepthScale"):Destroy() wait(0.2) rm() wait(0.5) Humanoid:FindFirstChild("HeadScale"):Destroy() wait(0.2)
+end
+})
+xiaopu:AddButton({
+	Name = "Dex",
+	Callback = function()
 
+end
+})
 xiaopu:AddButton({
 	Name = "Dex",
 	Callback = function()
@@ -427,18 +437,6 @@ xiaopu2:AddButton({
 	Name = "bf英文",
 	Callback = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript"))()
-	end
-})
-xiaopu2:AddButton({
-	Name = "bf英文",
-	Callback = function()
-		loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
-	end
-})
-xiaopu2:AddButton({
-	Name = "bf英文",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
 	end
 })
 xiaopu3:AddButton({
