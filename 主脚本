@@ -11,7 +11,7 @@ local player = game.Players.LocalPlayer
 local whitelist = {
     "11742ww",
     "QQ47666",
-	"玩家3",
+	"dysolong",
 	"玩家4"    --例子  "玩家名字", 
 }
 local players = game.Players:GetPlayers()
