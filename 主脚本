@@ -1,117 +1,140 @@
-local CoreGui = game:GetService("StarterGui")
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "蒲通用脚本（自用）",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "欢迎使用蒲脚本",
+   LoadingSubtitle = "正在加载",
+   Theme = "Serenity", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
-CoreGui:SetCore("SendNotification", {
-    Title = "蒲hub",
-    Text = "正在加载（反挂机已开启）",
-    Duration = 5, 
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
 })
-local LBLG = Instance.new("ScreenGui", getParent)
-local LBL = Instance.new("TextLabel", getParent)
-local player = game.Players.LocalPlayer
-local whitelist = {
-    "11742ww",
-    "QQ47666",
-	"dysolong",
-	"玩家4"    --例子  "玩家名字", 
-}
-local players = game.Players:GetPlayers()
+local Tab = Window:CreateTab("通用", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "通用",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "通用飞行",
+   Callback = function()
+   loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/fly')))()
+end
+})
+local Button = Tab:CreateButton({
+   Name = "爬墙",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+end
+})
+local Button = Tab:CreateButton({
+   Name = "IY指令",
+   Callback = function()
+  loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "旋转",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%8B%E8%BD%AC')))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "范围",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E8%8C%83%E5%9B%B4')))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "无限跳跃",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%A0%E9%99%90%E8%B7%B3')))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "跟踪玩家",
+   Callback = function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E8%B7%9F%E8%B8%AA%E7%8E%A9%E5%AE%B6"))()
 
-for _, player in ipairs(players) do
+  	end
+})
+local Button = Tab:CreateButton({
+   Name = "传送工具",
+   Callback = function()
+  mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "点击传送" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "肘人",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt'),true))()
 
-    local playerName = player.Name
-
-    local isInWhitelist = false
-
-    for _, whitelistedName in ipairs(whitelist) do
-
-        if playerName == whitelistedName then
-
-            isInWhitelist = true
-
-            break
-
-        end
+  end
+})
+local Button = Tab:CreateButton({
+   Name = "自杀",
+   Callback = function()
+  game.Players.LocalPlayer.Character.Humanoid.Health=0
 
     end
-
-if isInWhitelist then
-    LBLG.Name = "LBLG"
-    LBLG.Parent = game.CoreGui
-    LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    LBLG.Enabled = true
-    LBL.Name = "LBL"
-    LBL.Parent = LBLG
-    LBL.BackgroundColor3 = Color3.new(1, 1, 1)
-    LBL.BackgroundTransparency = 1
-    LBL.BorderColor3 = Color3.new(0, 0, 0)
-    LBL.Position = UDim2.new(0.75,0,0.010,0)
-    LBL.Size = UDim2.new(0, 133, 0, 30)
-    LBL.Font = Enum.Font.GothamSemibold
-    LBL.Text = "TextLabel"
-    LBL.TextColor3 = Color3.new(1, 1, 1)
-    LBL.TextScaled = true
-    LBL.TextSize = 14
-    LBL.TextWrapped = true
-    LBL.Visible = true
-
-local FpsLabel = LBL
-local Heartbeat = game:GetService("RunService").Heartbeat
-local LastIteration, Start
-local FrameUpdateTable = { }
-
-local function HeartbeatUpdate()
-	LastIteration = tick()
-	for Index = #FrameUpdateTable, 1, -1 do
-		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
-	end
-	FrameUpdateTable[1] = LastIteration
-	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
-	CurrentFPS = CurrentFPS - CurrentFPS % 1
-	FpsLabel.Text = ("北京时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
-end
-Start = tick()
-Heartbeat:Connect(HeartbeatUpdate)
-
-local notification = Instance.new("Sound")
-notification.Parent = game:GetService("SoundService")
-notification.SoundId = "rbxassetid://7029099738"
-notification.Volume = 5
-notification:Play()
-
-local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/SePpsSPZ'))()
-local Window = OrionLib:MakeWindow({Name = "浦hub", HidePremium = false, SaveConfig = true,IntroText = "欢迎使用浦hub", ConfigFolder = "欢迎使用浦hub"})
-local about = Window:MakeTab({
-    Name = "小蒲Hub",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
 })
-local xiaopu = Window:MakeTab({ 	Name = "通用", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu1 = Window:MakeTab({ 	Name = "一路向西Na1xi", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu2 = Window:MakeTab({ 	Name = "BF", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu3 = Window:MakeTab({ 	Name = "忍者传奇", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu4 = Window:MakeTab({ 	Name = "极速传奇", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu5 = Window:MakeTab({ 	Name = "战争大亨", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu6 = Window:MakeTab({ 	Name = "动感星期五", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu7 = Window:MakeTab({ 	Name = "彩虹朋友", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu8 = Window:MakeTab({ 	Name = "最强战场", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu9 = Window:MakeTab({ 	Name = "餐厅大亨", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-local xiaopu10 = Window:MakeTab({ 	Name = "基本是混音", 	Icon = "rbxassetid://4483345998", 	PremiumOnly = false })
-xiaopu:AddToggle({
-	Name = "夜视",
-	Default = false,
-	Callback = function(Value)
-		if Value then
+local Button = Tab:CreateButton({
+   Name = "DEX",
+   Callback = function()
+  loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+end
+})
+local Button = Tab:CreateButton({
+   Name = "玩家动作",
+   Callback = function()
+  loadstring(game:HttpGet("https://pastebin.com/raw/Zj4NnKs6"))()
+
+    end
+})
+local Toggle = Tab:CreateToggle({
+   Name = "夜视",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   if Value then
 			game.Lighting.Ambient = Color3.new(1, 1, 1)
 		else
 			game.Lighting.Ambient = Color3.new(0, 0, 0)
 		end
 	end
 })
-xiaopu:AddToggle({
-	Name = "穿墙",
-	Default = false,
-	Callback = function(Value)
-		if Value then
+local Toggle = Tab:CreateToggle({
+   Name = "穿墙",
+   Default = false,
+   
+   Callback = function(Value)
+  if Value then
 			Noclip = true
 			Stepped = game.RunService.Stepped:Connect(function()
 				if Noclip == true then
@@ -133,177 +156,12 @@ xiaopu:AddToggle({
 		end
 	end
 })
-xiaopu:AddButton({
-	Name = "玩家进入提示",
-	Callback = function()
-      	loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/main/bbn.lua"))()
-  	end
-})
-xiaopu:AddButton({
-	Name = "爬墙",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
-	end
-})
-xiaopu:AddTextbox({
-
-	Name = "移动速度设置",
-
-	Default = "",
-
-	TextDisappear = true,
-
-	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-
-	end
-
-})
-xiaopu:AddTextbox({
-
-	Name = "跳跃高度设置",
-
-	Default = "",
-
-	TextDisappear = true,
-
-	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-
-	end
-
-})
-xiaopu:AddTextbox({
-
-	Name = "重力设置",
-
-	Default = "",
-
-	TextDisappear = true,
-
-	Callback = function(Value)
-
-		game.Workspace.Gravity = Value
-
-	end
-
-})
-xiaopu:AddButton({
-	Name = "管理员指令 开发者脚本",
-	Callback = function()
-		loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))()
-	end
-})
-xiaopu:AddButton({
-	Name = "飞车",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/MHE1cbWF"))()
-	end
-})
-xiaopu:AddButton({
-	Name = "通用飞行",
-	Callback = function()
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/fly')))()
-	end
-})
-xiaopu:AddButton({
-	Name = "无限跳跃",
-	Callback = function()
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%A0%E9%99%90%E8%B7%B3')))()
-	end
-})
-xiaopu:AddButton({
-	Name = "范围",
-	Callback = function()
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E8%8C%83%E5%9B%B4')))()
-	end
-})
-xiaopu:AddButton({
-	Name = "旋转",
-	Callback = function()
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%8B%E8%BD%AC')))()
-	end
-})
-xiaopu:AddButton({
-	Name = "透视1需要验证Na1Xi",
-	Callback = function()
-		loadstring(game:GetObjects("rbxassetid://10092697033")[1].Source)()
-	end
-})
-xiaopu:AddButton({
-	Name = "透视2",
-	Callback = function()
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E9%80%8F%E8%A7%86')))()
-	end
-})
-xiaopu:AddButton({
-
-	Name = "跟踪玩家",
-
-	Callback = function()
-
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E8%B7%9F%E8%B8%AA%E7%8E%A9%E5%AE%B6"))()
-
-  	end    
-
-})
-xiaopu:AddButton({
-	Name = "传送工具",
-	Callback = function()
-mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "点击传送" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
-	end
-})
-
-xiaopu:AddButton({
-	Name = "Dex",
-	Callback = function()
-loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
-end
-})
-xiaopu:AddButton({
-
-  Name = "自瞄",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
-
-  end
-
-})
-xiaopu:AddButton({
-
-  Name = "肘人",
-
-  Callback = function ()
-
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt'),true))()
-
-  end
-
-})
-xiaopu:AddButton({
-
-	Name = "甩飞别人",
-
-	Callback = function()
-
-     loadstring(game:HttpGet("https://pastebin.com/raw/GnvPVBEi"))()
-
-  	end    
-
-})
-xiaopu:AddToggle({
-
-	Name = "穿墙2",
-
-	Default = false,
-
-	Callback = function(Value)
-
-		if Value then
+local Toggle = Tab:CreateToggle({
+   Name = "穿墙2",
+   CurrentValue = false,
+Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+                                if Value then
 
 		    Noclip = true
 
@@ -344,239 +202,163 @@ xiaopu:AddToggle({
 	    end
 
 	end
-
 })
-xiaopu:AddButton({
-
-	Name = "踏空行走",
-
-	Callback = function()
-
-loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Float'))()
+local Input = Tab:CreateInput({
+   Name = "速度设置",
+   Default= "",
+   PlaceholderText = "速度",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 
 	end
-
 })
-xiaopu:AddButton({
+local Input = Tab:CreateInput({
+   Name = "跳跃高度设置",
+   Default= "",
+   PlaceholderText = "高度",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 
-	Name = "隐身",
-
-	Callback = function()
-
-	 loadstring(game:HttpGet('https://pastebin.com/raw/nwGEvkez'))()
-
-  	end    
-
-})
-xiaopu:AddButton({
-
-    Name="立即死亡",
-
-    Callback=function()
-
-        game.Players.LocalPlayer.Character.Humanoid.Health=0
-
-    end
-
-})
-xiaopu:AddButton({
-
-    Name="玩家动作",
-
-    Callback=function()
-
-        getgenv().she="作者林"
-
-loadstring(game:HttpGet("https://pastebin.com/raw/Zj4NnKs6"))()
-
-    end
-
-})
-
-xiaopu1:AddButton({
-	Name = "超级枪",
-	Callback = function()
-		loadstring(game:GetObjects("rbxassetid://10040701935")[1].Source)()
 	end
 })
-xiaopu1:AddButton({
-	Name = "范围",
-	Callback = function()
-		loadstring(game:GetObjects("rbxassetid://10040722920")[1].Source)()
+local Tab = Window:CreateTab("一路向西NA1XI", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "一路向西",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "超级枪",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040701935")[1].Source)()
 	end
 })
-xiaopu1:AddButton({
-	Name = "快速抢钱",
-	Callback = function()
-		loadstring(game:GetObjects("rbxassetid://10041726588")[1].Source)()
+local Button = Tab:CreateButton({
+   Name = "范围",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040722920")[1].Source)()
 	end
 })
-xiaopu1:AddButton({
-	Name = "防摔",
-	Callback = function()
-		loadstring(game:GetObjects("rbxassetid://10040712770")[1].Source)()
+local Button = Tab:CreateButton({
+   Name = "快速点击",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10041726588")[1].Source)()
 	end
 })
-xiaopu1:AddButton({
-	Name = "防套",
-	Callback = function()
-		loadstring(game:GetObjects("rbxassetid://10040719318")[1].Source)()
+local Button = Tab:CreateButton({
+   Name = "防摔",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040712770")[1].Source)()
 	end
 })
-xiaopu2:AddButton({
-	Name = "bf英文",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript"))()
+local Button = Tab:CreateButton({
+   Name = "防套",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040719318")[1].Source)()
 	end
 })
-xiaopu3:AddButton({
-
-  Name = "林",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://pastebin.com/raw/G823ph4x"))()
+local Tab = Window:CreateTab("bf", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "bf",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+	end
+})
+local Tab = Window:CreateTab("战争大亨", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "战争大亨",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "自瞄",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
 
   end
-
 })
-
-xiaopu3:AddButton({
-
-  Name = "青",
-
-  Callback = function ()
-
-loadstring(game:HttpGet('https://raw.githubusercontent.com/kkaaccnnbb/money/main/fix'))()
+local Tab = Window:CreateTab("动感星期五", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "动感星期五",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/XMAS-Event-or-Funky-Friday-Auto-Player-Mobile-6721"))()
 
   end
-
 })
-xiaopu4:AddButton({
-
-  Name = "青",
-
-  Callback = function ()
-
-loadstring(game:HttpGet('https://rentry.co/ct293/raw'))()
+local Tab = Window:CreateTab("彩虹朋友", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "彩虹朋友",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/JNHHGaming/Rainbow-Friends/main/Rainbow%20Friends"))()
 
   end
-
 })
-xiaopu5:AddButton({
-
-  Name = "自瞄",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+local Tab = Window:CreateTab("基本是混音FNF", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "基本是混音FNF",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Library/main/BasicallyFNF", true))()
 
   end
-
 })
-
-xiaopu5:AddButton({
-
-  Name = "剑客",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/jiankeQWQ/JianKeStudio/main/zhanzhengdaheng"))()
+local Tab = Window:CreateTab("鱼FISCH", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "鱼",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "红s",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
 
   end
-
 })
-xiaopu6:AddButton({
-
-  Name = "英文",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://scriptblox.com/raw/XMAS-Event-or-Funky-Friday-Auto-Player-Mobile-6721"))()
-
-  end
-
-})
-xiaopu7:AddButton({
-
-  Name = "英文",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/JNHHGaming/Rainbow-Friends/main/Rainbow%20Friends"))()
-
-  end
-
-})
-xiaopu8:AddButton({
-
-  Name = "林",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
-
-  end
-
-})
-
-xiaopu8:AddButton({
-
-  Name = "剑客",
-
-  Callback = function ()
-
-jianke_V3 = "作者_初夏"jianke = "剑客QQ群347724155"loadstring(game:HttpGet(('https://raw.githubusercontent.com/jiankeQWQ/jiankeV3/main/jianke_V3')))()
-
-  end
-
-})
-
-xiaopu8:AddButton({
-
-  Name = "英文有卡密",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/Strongest/main/Battlegrounds77"))()
-
-  end
-
-})
-
-xiaopu8:AddButton({
-	Name = "点击复制卡密",
-	Callback = function()
-     setclipboard("BestTheStrongest5412Roblox")
-  end
-})
-xiaopu9:AddButton({
-
-  Name = "林",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://pastebin.com/raw/G823ph4x"))()
-
-  end
-
-})
-xiaopu10:AddButton({
-
-  Name = "英文",
-
-  Callback = function ()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Library/main/BasicallyFNF", true))()
-
-  end
-
-})
-OrionLib:Init()
-      else
-
-        print(playerName .. " 这位玩家没有白名单，不运行脚本内容")
-
-    end
-
-end
+local Label = Tab:CreateLabel("Label Example", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+local Paragraph = Tab:CreateParagraph({Title = "Paragraph Example", Content = "Paragraph Example"})
+Rayfield:LoadConfiguration()
