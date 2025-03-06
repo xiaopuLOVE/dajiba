@@ -1,0 +1,318 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/longchneg/GAl/refs/heads/main/EUIWQJQWNK"))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "蒲通用脚本（自用）",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "欢迎使用蒲脚本",
+   LoadingSubtitle = "正在加载",
+   Theme = "Serenity", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+local Tab = Window:CreateTab("通用", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "通用",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "通用飞行",
+   Callback = function()
+   loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/fly')))()
+end
+})
+local Button = Tab:CreateButton({
+   Name = "爬墙",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+end
+})
+local Button = Tab:CreateButton({
+   Name = "IY指令",
+   Callback = function()
+  loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "旋转",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%8B%E8%BD%AC')))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "范围",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E8%8C%83%E5%9B%B4')))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "无限跳跃",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E6%97%A0%E9%99%90%E8%B7%B3')))()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "跟踪玩家",
+   Callback = function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopuLOVE/dajiba/main/%E8%B7%9F%E8%B8%AA%E7%8E%A9%E5%AE%B6"))()
+
+  	end
+})
+local Button = Tab:CreateButton({
+   Name = "传送工具",
+   Callback = function()
+  mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "点击传送" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "肘人",
+   Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt'),true))()
+
+  end
+})
+local Button = Tab:CreateButton({
+   Name = "自杀",
+   Callback = function()
+  game.Players.LocalPlayer.Character.Humanoid.Health=0
+
+    end
+})
+local Button = Tab:CreateButton({
+   Name = "DEX",
+   Callback = function()
+  loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+end
+})
+local Button = Tab:CreateButton({
+   Name = "玩家动作",
+   Callback = function()
+  loadstring(game:HttpGet("https://pastebin.com/raw/Zj4NnKs6"))()
+
+    end
+})
+local Toggle = Tab:CreateToggle({
+   Name = "夜视",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   if Value then
+			game.Lighting.Ambient = Color3.new(1, 1, 1)
+		else
+			game.Lighting.Ambient = Color3.new(0, 0, 0)
+		end
+	end
+})
+local Toggle = Tab:CreateToggle({
+   Name = "穿墙",
+   Default = false,
+   
+   Callback = function(Value)
+  if Value then
+			Noclip = true
+			Stepped = game:GetService("RunService").Stepped:Connect(function()
+				if Noclip == true then
+					for a, b in pairs(game.Workspace:GetChildren()) do
+						if b.Name == game.Players.LocalPlayer.Name then
+							for i, v in pairs(game.Workspace[game.Players.LocalPlayer.Name]:GetChildren()) do
+								if v:IsA("BasePart") then
+									v.CanCollide = false
+								end
+							end
+						end
+					end
+				else
+					Stepped:Disconnect()
+				end
+			end)
+		else
+			Noclip = false
+		end
+	end
+})
+local Input = Tab:CreateInput({
+   Name = "速度设置",
+   Default= "",
+   PlaceholderText = "速度",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+
+	end
+})
+local Input = Tab:CreateInput({
+   Name = "跳跃高度设置",
+   Default= "",
+   PlaceholderText = "高度",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+
+	end
+})
+local Tab = Window:CreateTab("一路向西NA1XI", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "一路向西",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "超级枪",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040701935")[1].Source)()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "范围",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040722920")[1].Source)()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "快速点击",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10041726588")[1].Source)()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "防摔",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040712770")[1].Source)()
+	end
+})
+local Button = Tab:CreateButton({
+   Name = "防套",
+   Callback = function()
+   loadstring(game:GetObjects("rbxassetid://10040719318")[1].Source)()
+	end
+})
+local Tab = Window:CreateTab("bf", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "bf",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+	end
+})
+local Tab = Window:CreateTab("战争大亨", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "战争大亨",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "自瞄",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+
+  end
+})
+local Tab = Window:CreateTab("动感星期五", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "动感星期五",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/XMAS-Event-or-Funky-Friday-Auto-Player-Mobile-6721"))()
+
+  end
+})
+local Tab = Window:CreateTab("彩虹朋友", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "彩虹朋友",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/JNHHGaming/Rainbow-Friends/main/Rainbow%20Friends"))()
+
+  end
+})
+local Tab = Window:CreateTab("基本是混音FNF", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "基本是混音FNF",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "英文",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Library/main/BasicallyFNF", true))()
+
+  end
+})
+local Tab = Window:CreateTab("鱼FISCH", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "鱼",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "红s",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+
+  end
+})
+local Label = Tab:CreateLabel("Label Example", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+local Paragraph = Tab:CreateParagraph({Title = "Paragraph Example", Content = "Paragraph Example"})
+Rayfield:LoadConfiguration()
