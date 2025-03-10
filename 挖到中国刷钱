@@ -1,0 +1,16 @@
+local LocalPlayer = game.Players.LocalPlayer.Character.HumanoidRootPart
+local WaitValue = 1
+local frequency = 30
+for i, v in ipairs(workspace.DigSiteItems.Treasures:GetDescendants()) do
+    if v:IsA("ProximityPrompt") then
+        v.HoldDuration = 0
+    end
+end
+for i, v in ipairs(workspace.DigSiteItems.Treasures:GetChildren()) do
+   wait(WaitValue)
+   LocalPlayer.CFrame = CFrame.new(v.Position)
+   wait(WaitValue)
+       for i = 1, frequency do
+        fireproximityprompt(v:FindFirstChild("TreasurePrompt"))
+    end
+end
