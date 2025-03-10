@@ -49,6 +49,12 @@ local Button = Tab:CreateButton({
 end
 })
 local Button = Tab:CreateButton({
+   Name = "缩短点击时间",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopuLOVE/dajiba/refs/heads/main/%E7%BC%A9%E7%9F%AD%E7%82%B9%E5%87%BB%E6%97%B6%E9%97%B4"))()
+end
+})
+local Button = Tab:CreateButton({
    Name = "爬墙",
    Callback = function()
    loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
@@ -312,6 +318,21 @@ local Button = Tab:CreateButton({
    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
 
   end
+})
+local Tab = Window:CreateTab("挖到中国", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Section Example")
+local Divider = Tab:CreateDivider()
+Rayfield:Notify({
+   Title = "挖到中国",
+   Content = "已加载",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+local Button = Tab:CreateButton({
+   Name = "刷钱",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopuLOVE/dajiba/refs/heads/main/%E6%8C%96%E5%88%B0%E4%B8%AD%E5%9B%BD%E5%88%B7%E9%92%B1"))()
+end
 })
 local Label = Tab:CreateLabel("Label Example", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
 local Paragraph = Tab:CreateParagraph({Title = "Paragraph Example", Content = "Paragraph Example"})
