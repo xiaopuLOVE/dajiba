@@ -1,0 +1,5 @@
+for i, v in ipairs(workspace.DigSiteItems.Treasures:GetDescendants()) do
+    if v:IsA("ProximityPrompt") then
+        v.HoldDuration = 0
+    end
+end
